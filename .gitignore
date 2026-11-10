@@ -1,0 +1,20 @@
+# environnement Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# secrets : on ne publie jamais les clés d'API
+.env
+
+# fichiers générés à l'exécution
+data/index/
+sauvegardes/
+traces/traces.jsonl
+
+# éditeurs / outils
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
