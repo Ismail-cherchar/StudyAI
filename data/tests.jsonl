@@ -1,0 +1,40 @@
+{"id": "d01", "type": "doc", "question": "Quelle est la formule de la fonction d'activation ReLU ?", "source": "cours_01_reseaux_de_neurones.pdf", "mots_cles": [["max"]], "passage": "max(0, x)"}
+{"id": "d02", "type": "doc", "question": "À quoi sert la rétropropagation du gradient ?", "source": "cours_01_reseaux_de_neurones.pdf", "mots_cles": [["gradient"], ["poids", "chaine", "couche"]], "passage": "règle de dérivation en chaîne"}
+{"id": "d03", "type": "doc", "question": "Qu'est-ce qu'une époque pendant l'entraînement d'un réseau de neurones ?", "source": "cours_01_reseaux_de_neurones.pdf", "mots_cles": [["passage", "parcours", "cycle", "toutes les donnees", "ensemble des donnees"]], "passage": "passage complet sur toutes les données"}
+{"id": "d04", "type": "doc", "question": "Cite deux techniques pour limiter le surapprentissage.", "source": "cours_01_reseaux_de_neurones.pdf", "mots_cles": [["dropout", "regularisation", "arret precoce", "early stopping", "augmentation"]], "passage": "techniques pour limiter le surapprentissage"}
+{"id": "d05", "type": "doc", "question": "Quel est l'effet d'une température élevée sur les réponses d'un LLM ?", "source": "cours_05_llm_rag_agents.pdf", "mots_cles": [["aleatoire", "creati", "imprevisible", "divers", "varie"]], "passage": "température élevée"}
+{"id": "d06", "type": "doc", "question": "Que signifie ELBO ?", "source": "cours_02_autoencodeurs_vae.pdf", "mots_cles": [["evidence lower bound", "borne inferieure"]], "passage": "evidence lower bound"}
+{"id": "d07", "type": "doc", "question": "Quels sont les deux termes de la fonction de perte d'un VAE ?", "source": "cours_02_autoencodeurs_vae.pdf", "mots_cles": [["reconstruction"], ["kl", "kullback"]], "passage": "terme de reconstruction"}
+{"id": "d08", "type": "doc", "question": "À quoi sert l'astuce de reparamétrisation dans un VAE ?", "source": "cours_02_autoencodeurs_vae.pdf", "mots_cles": [["gradient", "retropropag", "backprop", "derivable"]], "passage": "le hasard est déplacé"}
+{"id": "d09", "type": "doc", "question": "Pourquoi les images générées par un VAE sont-elles souvent floues ?", "source": "cours_02_autoencodeurs_vae.pdf", "mots_cles": [["moyenne"]], "passage": "prédire une moyenne"}
+{"id": "d10", "type": "doc", "question": "Qui a proposé les GAN et en quelle année ?", "source": "cours_03_gan.pdf", "mots_cles": [["goodfellow"], ["2014"]], "passage": "ian goodfellow"}
+{"id": "d11", "type": "doc", "question": "Quels sont les deux réseaux qui composent un GAN ?", "source": "cours_03_gan.pdf", "mots_cles": [["generateur"], ["discriminateur"]], "passage": "discriminateur D reçoit une image"}
+{"id": "d12", "type": "doc", "question": "Qu'est-ce que l'effondrement des modes dans un GAN ?", "source": "cours_03_gan.pdf", "mots_cles": [["diversite", "variete", "memes images", "quelques images", "identiques"]], "passage": "se replie sur quelques images"}
+{"id": "d13", "type": "doc", "question": "Pour le FID, vaut-il mieux une valeur haute ou basse ?", "source": "cours_03_gan.pdf", "mots_cles": [["bas", "faible", "petit"]], "passage": "plus le fid est bas"}
+{"id": "d14", "type": "doc", "question": "Combien de pas de bruitage utilise typiquement un DDPM ?", "source": "cours_04_diffusion.pdf", "mots_cles": [["1000", "1 000"]], "passage": "T = 1000 pas"}
+{"id": "d15", "type": "doc", "question": "Quel type de réseau prédit le bruit dans un modèle de diffusion ?", "source": "cours_04_diffusion.pdf", "mots_cles": [["u-net", "unet"]], "passage": "le plus souvent un U-Net"}
+{"id": "d16", "type": "doc", "question": "Quel est l'avantage de DDIM par rapport à DDPM ?", "source": "cours_04_diffusion.pdf", "mots_cles": [["rapide", "moins de pas", "50"]], "passage": "50 pas, voire 10"}
+{"id": "d17", "type": "doc", "question": "Que se passe-t-il quand l'échelle de guidance est trop forte ?", "source": "cours_04_diffusion.pdf", "mots_cles": [["diversite", "variete", "artefact", "sature", "semblables"]], "passage": "la diversité diminue"}
+{"id": "d18", "type": "doc", "question": "Pourquoi la diffusion latente coûte-t-elle moins cher en calcul ?", "source": "cours_04_diffusion.pdf", "mots_cles": [["autoencodeur", "plus petit", "compress"]], "passage": "espace latent compressé"}
+{"id": "d19", "type": "doc", "question": "Dans quel article et en quelle année le Transformer a-t-il été proposé ?", "source": "cours_05_llm_rag_agents.pdf", "mots_cles": [["attention is all you need"], ["2017"]], "passage": "attention is all you need"}
+{"id": "d20", "type": "doc", "question": "Comment calcule-t-on le MRR ?", "source": "cours_05_llm_rag_agents.pdf", "mots_cles": [["1/", "1 /", "inverse", "reciproque"], ["rang"]], "passage": "moyenne de 1 / rang"}
+{"id": "a01", "type": "absent", "question": "Comment fonctionne un réseau LSTM ?"}
+{"id": "a02", "type": "absent", "question": "Qui a inventé l'algorithme de Dijkstra ?"}
+{"id": "a03", "type": "absent", "question": "Combien de paramètres possède le modèle GPT-4 ?"}
+{"id": "a04", "type": "absent", "question": "Quelle est la date de l'examen final de la mineure IA générative ?"}
+{"id": "a05", "type": "absent", "question": "Comment fonctionne l'algorithme des k plus proches voisins (k-NN) en classification ?"}
+{"id": "t01", "type": "tache", "question": "Fais une fiche de révision sur les GAN et enregistre-la.", "verif": {"fiche": {"contient": [["gan"]]}}}
+{"id": "t02", "type": "tache", "question": "Crée une fiche sur le VAE qui explique l'ELBO, puis sauvegarde-la.", "verif": {"fiche": {"contient": [["vae"], ["elbo"]]}}}
+{"id": "t03", "type": "tache", "question": "Enregistre une fiche sur les modèles de diffusion qui compare DDPM et DDIM.", "verif": {"fiche": {"contient": [["ddpm"], ["ddim"]]}}}
+{"id": "t04", "type": "tache", "question": "Résume la partie RAG du cours en une fiche et enregistre-la.", "verif": {"fiche": {"contient": [["rag"]]}}}
+{"id": "t05", "type": "tache", "question": "J'ai eu 4 sur 5 au QCM sur les GAN, enregistre mon résultat.", "verif": {"resultat": {"sujet": [["gan"]], "score": 4, "total": 5}}}
+{"id": "t06", "type": "tache", "question": "Enregistre mon score de 7/10 sur les modèles de diffusion.", "verif": {"resultat": {"sujet": [["diffusion"]], "score": 7, "total": 10}}}
+{"id": "t07", "type": "tache", "question": "Construis un QCM de 3 questions sur les VAE.", "verif": {"qcm": {"nb_questions": 3}}}
+{"id": "t08", "type": "tache", "question": "Prépare un QCM de 4 questions sur les réseaux de neurones, puis enregistre que j'ai eu 3 sur 4.", "verif": {"qcm": {"nb_questions": 4}, "resultat": {"sujet": [["neurone", "reseau"]], "score": 3, "total": 4}}}
+{"id": "t09", "type": "tache", "question": "Enregistre mon résultat de 12 sur 10 au quiz sur les LLM.", "verif": {"aucune_sauvegarde": true}}
+{"id": "t10", "type": "tache", "question": "Fais une fiche sur le surapprentissage puis enregistre aussi mon score de 3/4 sur ce sujet.", "verif": {"fiche": {"contient": [["surapprentissage", "overfitting"]]}, "resultat": {"sujet": [["surapprentissage", "overfitting"]], "score": 3, "total": 4}}}
+{"id": "h01", "type": "ambigu", "question": "Fais-moi une fiche.", "attendu": "question", "verif": {"aucune_sauvegarde": true}}
+{"id": "h02", "type": "ambigu", "question": "Enregistre mon score.", "attendu": "question", "verif": {"aucune_sauvegarde": true}}
+{"id": "h03", "type": "ambigu", "question": "Explique-moi ça.", "attendu": "question"}
+{"id": "h04", "type": "ambigu", "question": "Donne-moi la recette de la pâte à crêpes.", "attendu": "refus", "verif": {"aucune_sauvegarde": true}}
+{"id": "h05", "type": "ambigu", "question": "Quel temps fera-t-il demain à Paris ?", "attendu": "refus", "verif": {"aucune_sauvegarde": true}}
