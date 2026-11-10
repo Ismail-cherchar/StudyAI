@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <!-- Illustration StudyAI : des cours PDF à l'assistant, puis aux réponses, fiches et QCM -->
+  <defs>
+    <linearGradient id="ciel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6F3FF"/>
+      <stop offset="1" stop-color="#E6DEFF"/>
+    </linearGradient>
+    <linearGradient id="tete" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7B5CFA"/>
+      <stop offset="1" stop-color="#4A2FD0"/>
+    </linearGradient>
+    <marker id="pointe" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#7B5CFA"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="380" rx="28" fill="url(#ciel)"/>
+  <circle cx="820" cy="40" r="70" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="70" cy="350" r="90" fill="#FFFFFF" opacity="0.45"/>
+
+  <text x="450" y="46" text-anchor="middle" font-size="22" font-weight="700" fill="#2A1C66">Tes cours PDF  →  StudyAI  →  tu révises mieux</text>
+
+  <!-- ===== 1. les cours PDF ===== -->
+  <g transform="translate(70,90)">
+    <g transform="rotate(-8 70 90)">
+      <rect x="10" y="10" width="120" height="155" rx="10" fill="#FFFFFF" stroke="#C9BDFB" stroke-width="3"/>
+    </g>
+    <g transform="rotate(5 70 90)">
+      <rect x="22" y="6" width="120" height="155" rx="10" fill="#FFFFFF" stroke="#C9BDFB" stroke-width="3"/>
+    </g>
+    <rect x="16" y="14" width="120" height="155" rx="10" fill="#FFFFFF" stroke="#7B5CFA" stroke-width="3"/>
+    <rect x="30" y="30" width="46" height="22" rx="5" fill="#F25C54"/>
+    <text x="53" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">PDF</text>
+    <rect x="30" y="66" width="92" height="7" rx="3.5" fill="#D9CFFF"/>
+    <rect x="30" y="82" width="80" height="7" rx="3.5" fill="#D9CFFF"/>
+    <rect x="30" y="98" width="92" height="7" rx="3.5" fill="#D9CFFF"/>
+    <rect x="30" y="114" width="60" height="7" rx="3.5" fill="#D9CFFF"/>
+    <rect x="30" y="138" width="92" height="7" rx="3.5" fill="#FFE39A"/>
+    <text x="76" y="205" text-anchor="middle" font-size="16" font-weight="600" fill="#2A1C66">Tes cours</text>
+    <text x="76" y="225" text-anchor="middle" font-size="13" fill="#5B4A99">GAN, VAE, diffusion, LLM...</text>
+  </g>
+
+  <path d="M240 190 C270 160 300 160 322 182" fill="none" stroke="#7B5CFA" stroke-width="4" stroke-dasharray="8 7" marker-end="url(#pointe)"/>
+
+  <!-- ===== 2. le robot StudyAI ===== -->
+  <g transform="translate(335,82)">
+    <ellipse cx="110" cy="232" rx="92" ry="12" fill="#C9BDFB" opacity="0.6"/>
+    <rect x="22" y="104" width="14" height="32" rx="6" fill="#3A2499"/>
+    <rect x="184" y="104" width="14" height="32" rx="6" fill="#3A2499"/>
+    <rect x="30" y="70" width="160" height="124" rx="38" fill="url(#tete)"/>
+    <rect x="50" y="94" width="120" height="76" rx="24" fill="#1C1240"/>
+    <path d="M72 134 Q85 116 98 134" stroke="#3EF0CF" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M122 134 Q135 116 148 134" stroke="#3EF0CF" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M96 150 Q110 161 124 150" stroke="#3EF0CF" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M66 58 L66 76 Q110 94 154 76 L154 58 Z" fill="#2A1C66"/>
+    <polygon points="110,20 196,50 110,80 24,50" fill="#1C1240"/>
+    <polyline points="110,50 176,58 176,92" fill="none" stroke="#FFC845" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="169" y="90" width="14" height="20" rx="5" fill="#FFC845"/>
+    <rect x="70" y="196" width="80" height="26" rx="13" fill="#FFFFFF" stroke="#7B5CFA" stroke-width="2"/>
+    <text x="110" y="214" text-anchor="middle" font-size="14" font-weight="700" fill="#4A2FD0">StudyAI</text>
+  </g>
+
+  <!-- bulle de dialogue -->
+  <g transform="translate(440,60)">
+    <rect x="40" y="0" width="168" height="56" rx="16" fill="#FFFFFF" stroke="#7B5CFA" stroke-width="2"/>
+    <path d="M58 54 L46 74 L76 55" fill="#FFFFFF" stroke="#7B5CFA" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="52" y="52" width="30" height="5" fill="#FFFFFF"/>
+    <text x="124" y="24" text-anchor="middle" font-size="13" fill="#2A1C66">L'ELBO, c'est...</text>
+    <text x="124" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#7B5CFA">[cours_02_vae.pdf p.1]</text>
+  </g>
+
+  <path d="M580 230 C605 250 625 250 645 232" fill="none" stroke="#7B5CFA" stroke-width="4" stroke-dasharray="8 7" marker-end="url(#pointe)"/>
+
+  <!-- ===== 3. ce que l'étudiant obtient ===== -->
+  <g transform="translate(660,92)">
+    <rect x="0" y="0" width="200" height="62" rx="14" fill="#FFFFFF" stroke="#C9BDFB" stroke-width="2"/>
+    <rect x="14" y="14" width="34" height="26" rx="8" fill="#7B5CFA"/>
+    <path d="M22 40 L20 50 L32 40" fill="#7B5CFA"/>
+    <circle cx="24" cy="27" r="2.6" fill="#FFFFFF"/><circle cx="31" cy="27" r="2.6" fill="#FFFFFF"/><circle cx="38" cy="27" r="2.6" fill="#FFFFFF"/>
+    <text x="60" y="28" font-size="15" font-weight="700" fill="#2A1C66">Réponses</text>
+    <text x="60" y="47" font-size="12.5" fill="#5B4A99">avec les sources citées</text>
+
+    <rect x="0" y="76" width="200" height="62" rx="14" fill="#FFFFFF" stroke="#C9BDFB" stroke-width="2"/>
+    <rect x="16" y="88" width="30" height="38" rx="5" fill="#3EF0CF"/>
+    <rect x="22" y="97" width="18" height="4" rx="2" fill="#1C1240"/>
+    <rect x="22" y="105" width="18" height="4" rx="2" fill="#1C1240"/>
+    <rect x="22" y="113" width="12" height="4" rx="2" fill="#1C1240"/>
+    <text x="60" y="104" font-size="15" font-weight="700" fill="#2A1C66">Fiches</text>
+    <text x="60" y="123" font-size="12.5" fill="#5B4A99">notions clés + exemples</text>
+
+    <rect x="0" y="152" width="200" height="62" rx="14" fill="#FFFFFF" stroke="#C9BDFB" stroke-width="2"/>
+    <rect x="14" y="166" width="34" height="34" rx="9" fill="#FFC845"/>
+    <path d="M22 183 L29 190 L41 175" stroke="#1C1240" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="180" font-size="15" font-weight="700" fill="#2A1C66">QCM corrigés</text>
+    <text x="60" y="199" font-size="12.5" fill="#5B4A99">score enregistré</text>
+  </g>
+
+  <!-- les 4 niveaux -->
+  <g font-size="12.5" font-weight="600">
+    <rect x="160" y="330" width="130" height="28" rx="14" fill="#FFFFFF" stroke="#C9BDFB"/>
+    <text x="225" y="349" text-anchor="middle" fill="#2A1C66">0 · LLM seul</text>
+    <rect x="305" y="330" width="130" height="28" rx="14" fill="#FFFFFF" stroke="#C9BDFB"/>
+    <text x="370" y="349" text-anchor="middle" fill="#2A1C66">1 · RAG</text>
+    <rect x="450" y="330" width="130" height="28" rx="14" fill="#FFFFFF" stroke="#C9BDFB"/>
+    <text x="515" y="349" text-anchor="middle" fill="#2A1C66">2 · Agent outillé</text>
+    <rect x="595" y="330" width="150" height="28" rx="14" fill="#7B5CFA"/>
+    <text x="670" y="349" text-anchor="middle" fill="#FFFFFF">3 · Recherche hybride</text>
+  </g>
+</svg>
