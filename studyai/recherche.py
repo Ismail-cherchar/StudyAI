@@ -3,12 +3,18 @@
 # Fichier : studyai/recherche.py
 # Auteurs : Adam Bouchiba, Ismail Cherchar
 # Date    : 10/11/2026
-# Version : 1.0
-# Rôle    : recherche des passages de cours par le sens
-#           (embeddings + similarité cosinus)
+# Version : 1.1
+# Rôle    : recherche des passages de cours
+#           - dense (embeddings + similarité cosinus)  -> niveaux 1 et 2
+#           - BM25 écrit à la main (mots-clés)
+#           - hybride dense + BM25 avec fusion RRF     -> niveau 3
 # ------------------------------------------------------------
 
 import hashlib
+import math
+import re
+import unicodedata
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -73,6 +79,101 @@ class RechercheDense:
         scores = self.similarites(requete)
         ordre = np.argsort(-scores)[:k]
         return [(self.morceaux[i], float(scores[i])) for i in ordre]
+
+
+MOTS_VIDES = set("""
+le la les un une des du de d l au aux et ou en a est sont que qui quoi quel quelle quels quelles
+ce cet cette ces se sa son ses sur par pour dans avec sans pas ne plus il elle on y
+je tu nous vous ils elles me te moi toi mon ma mes ton ta tes leur leurs comment pourquoi
+quand combien donne donner explique expliquer c qu s n t
+""".split())
+
+
+def tokeniser(texte):
+    """Met le texte en minuscules, enlève les accents et garde les mots utiles (pour BM25)."""
+    texte = unicodedata.normalize("NFD", texte.lower())
+    texte = "".join(c for c in texte if unicodedata.category(c) != "Mn")
+    mots = re.findall(r"[a-z0-9]+", texte)
+    return [m for m in mots if m not in MOTS_VIDES and len(m) > 1]
+
+
+class BM25:
+    """Recherche par mots-clés avec la formule BM25 (écrite à la main, sans librairie)."""
+
+    nom = "bm25"
+
+    def __init__(self, morceaux, k1=1.5, b=0.75):
+        """Prépare les statistiques : fréquence des mots par morceau, longueur moyenne et IDF."""
+        self.morceaux = morceaux
+        self.k1 = k1
+        self.b = b
+        self.docs = [Counter(tokeniser(m["texte"])) for m in morceaux]
+        self.longueurs = [sum(d.values()) for d in self.docs]
+        self.longueur_moyenne = (sum(self.longueurs) / len(self.longueurs)) if self.longueurs else 0
+        # nombre de morceaux qui contiennent chaque mot
+        nb_docs_avec_mot = Counter()
+        for d in self.docs:
+            nb_docs_avec_mot.update(d.keys())
+        n = len(self.docs)
+        self.idf = {
+            mot: math.log(1 + (n - nb + 0.5) / (nb + 0.5)) for mot, nb in nb_docs_avec_mot.items()
+        }
+
+    def scores(self, requete):
+        """Calcule le score BM25 de la requête pour chaque morceau."""
+        mots = tokeniser(requete)
+        resultats = []
+        for doc, longueur in zip(self.docs, self.longueurs):
+            score = 0.0
+            for mot in mots:
+                if mot not in doc:
+                    continue
+                f = doc[mot]
+                normalisation = 1 - self.b + self.b * longueur / self.longueur_moyenne
+                score += self.idf[mot] * f * (self.k1 + 1) / (f + self.k1 * normalisation)
+            resultats.append(score)
+        return np.array(resultats)
+
+    def chercher(self, requete, k=config.K_RECHERCHE):
+        """Renvoie les k morceaux avec le meilleur score BM25."""
+        scores = self.scores(requete)
+        ordre = np.argsort(-scores)[:k]
+        return [(self.morceaux[i], float(scores[i])) for i in ordre]
+
+
+class RechercheHybride:
+    """Combine la recherche dense et BM25 avec la fusion RRF (Reciprocal Rank Fusion)."""
+
+    nom = "hybride"
+
+    def __init__(self, dense, bm25, k_rrf=60):
+        """Garde les deux moteurs de recherche et la constante k de la formule RRF."""
+        self.dense = dense
+        self.bm25 = bm25
+        self.morceaux = dense.morceaux
+        self.k_rrf = k_rrf
+
+    def chercher(self, requete, k=config.K_RECHERCHE):
+        """Fusionne les deux classements : score = somme de 1 / (k_rrf + rang).
+
+        Le score renvoyé est la similarité dense, pour pouvoir garder le même seuil d'abstention.
+        """
+        if not self.morceaux:
+            return []
+        sim_dense = self.dense.similarites(requete)
+        score_bm25 = self.bm25.scores(requete)
+        rang_dense = np.argsort(-sim_dense)
+        rang_bm25 = np.argsort(-score_bm25)
+
+        fusion = np.zeros(len(self.morceaux))
+        for rang, i in enumerate(rang_dense):
+            fusion[i] += 1 / (self.k_rrf + rang + 1)
+        for rang, i in enumerate(rang_bm25):
+            if score_bm25[i] > 0:  # un morceau sans aucun mot commun n'a pas de rang BM25
+                fusion[i] += 1 / (self.k_rrf + rang + 1)
+
+        ordre = np.argsort(-fusion)[:k]
+        return [(self.morceaux[i], float(sim_dense[i])) for i in ordre]
 
 
 def formater_source(morceau):
